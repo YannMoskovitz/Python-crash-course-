@@ -36,7 +36,24 @@ class User:
         """Reset login_attempts to 0."""
         self.login_attempts = 0
 
-eric = User('eric', 'matthes', 'e_matthes', 'e_matthes@example.com', 'alaska')
+class Admin(User):
+    """"""
+    def __init__(self,first_name,last_name,username,location,email,middle_name=''):
+        super().__init__(first_name ,last_name ,username, location, email, middle_name='')
+        self.privileges = []
+
+    def show_privileges(self):
+        """shows the privileges the user has"""
+        print(f'\n the user "{self.username}" has the following privileges')
+        for privilege in self.privileges:
+            print('- ' + privilege.title())
+
+class Privilege(user):
+    """ """
+    def __init__(self,)
+
+
+"""eric = User('eric', 'matthes', 'e_matthes', 'e_matthes@example.com', 'alaska')
 eric.describe_user()
 eric.greet_user()
 
@@ -46,12 +63,15 @@ willie.greet_user()
 
 yann = User('yann', 'moskovitz', 'sefyammas', 'yann.moskovitz@example.com.br', 'brazil', middle_name='comparato')
 yann.describe_user()
-yann.greet_user()
+yann.greet_user()"""
 
-eric = User('eric', 'matthes', 'e_matthes', 'e_matthes@example.com', 'alaska')
+eric = Admin('eric', 'matthes', 'e_matthes', 'e_matthes@example.com', 'alaska')
+eric.privileges = ['Can add and remove users from users list', 'Can post on portal', 'Can remove posts', 'Can login without password']
 eric.describe_user()
 eric.greet_user()
+eric.show_privileges()
 
+"""
 print("\nMaking 3 login attempts...")
 eric.increment_login_attempts()
 eric.increment_login_attempts()
@@ -60,4 +80,4 @@ print("  Login attempts: " + str(eric.login_attempts))
 
 print("Resetting login attempts...")
 eric.reset_login_attempts()
-print("  Login attempts: " + str(eric.login_attempts))
+print("  Login attempts: " + str(eric.login_attempts))"""
